@@ -1,0 +1,56 @@
+﻿@model InvoiceGenerator.Models.Invoice
+
+@{
+    ViewData["Title"] = "Invoice Details";
+}
+
+<h1>Invoice @Model.InvoiceNumber</h1>
+
+<div>
+    <h4>Client Information</h4>
+    <p>@Model.Client.Name</p>
+    <p>@Model.Client.Address</p>
+</div>
+
+<div>
+    <h4>Invoice Details</h4>
+    <p>Invoice Number: @Model.InvoiceNumber</p>
+    <p>Date: @Model.Date.ToShortDateString()</p>
+    <p>Payment Terms: @Model.Notes</p>
+</div>
+
+<div>
+    <h4>Line Items</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.LineItems)
+            {
+                <tr>
+                    <td>@item.Description</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@item.Total</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h4>Totals</h4>
+    <p>Subtotal: @Model.Subtotal</p>
+    <p>VAT (19%): @Model.VAT</p>
+    <p>Total: @Model.Total</p>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
