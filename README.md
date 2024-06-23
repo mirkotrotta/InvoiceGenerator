@@ -17,7 +17,7 @@ InvoiceGenerator is an ASP.NET Core MVC application designed to help German free
 ### Installation
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your_username/InvoiceGenerator.git
+   git clone https://github.com/mirkotrotta/InvoiceGenerator.git
    ```
 2. **Navigate to the project directory**:
    ```bash
